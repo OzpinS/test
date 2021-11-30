@@ -8,8 +8,12 @@
 .logo {
   margin: auto;
   margin-top: 80px;
-  margin-bottom: 20px;
-  width: 406px
+  margin-bottom: 14px;
+  width: 240px
+}
+
+.logo img {
+  width: 100%;
 }
 
 .form {
@@ -20,4 +24,13 @@
   box-shadow: 0 0 10px rgba(14, 6, 6, 0.1);
   border-radius: 25px;
   background: #fff;
+}
+
+.form button {
+  width: 100%;
+}
+
+.menu {
+  margin-bottom: 20px;
+  font-size: 18px;
 }

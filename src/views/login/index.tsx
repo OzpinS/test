@@ -1,5 +1,5 @@
-import { Button, Row, Col, Input, Form } from 'antd'
-import { useRequest } from 'ahooks'
+import { Button, Row, Col, Input, Form, Menu, Dropdown, Checkbox } from 'antd'
+import { DownOutlined } from '@ant-design/icons';
 import config from '../../config'
 import styles from './index.module.css'
 
@@ -8,6 +8,16 @@ const FormItem = Form.Item
 const Login = () => {
   const handleOk = () => { }
 
+  const langMenu = (
+    <Menu>
+      <Menu.Item key="0">
+        <span>English</span>
+      </Menu.Item>
+      <Menu.Item key="1">
+        <span>Chinease</span>
+      </Menu.Item>
+    </Menu>
+  );
 
   return (
     <div className={styles.wrapper}>
@@ -15,17 +25,25 @@ const Login = () => {
         <img alt="logo" src={config.logoPath} />
       </div>
       <div className={styles.form}>
-        <Row >
-          <Col>Login</Col>
-          <Col>English</Col>
+        <Row justify="space-between" className={styles.menu}>
+          <Col>
+            <span style={{fontWeight: 'bold'}}>Login</span>
+          </Col>
+          <Col>
+            <Dropdown overlay={langMenu}>
+              <a href="/" onClick={e => e.preventDefault()} style={{color: 'gray'}}>
+                English <DownOutlined />
+              </a>
+            </Dropdown>
+          </Col>
         </Row>
         <Form
           onFinish={handleOk}
           >
-          <FormItem name="username" 
+          <FormItem name="email" 
             rules={[{ required: true }]} hasFeedback>
               <Input
-                placeholder={`Username`}
+                placeholder={`Email`}
               />
           </FormItem>
           <FormItem name="password"
@@ -35,7 +53,15 @@ const Login = () => {
                 placeholder={`Password`}
               />
           </FormItem>
-          <Row>
+          <div>
+            <Row justify="space-between">
+              <Col>
+                <a href="/">Forgot Password?</a>
+              </Col>
+              <Col>
+                <Checkbox>Remember me?</Checkbox>
+              </Col>
+            </Row>
             <Button
               type="primary"
               htmlType="submit"
@@ -43,7 +69,7 @@ const Login = () => {
             >
               LOGIN
             </Button>
-          </Row>
+          </div>
         </Form>
       </div>
     </div>
