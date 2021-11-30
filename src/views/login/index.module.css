@@ -1,0 +1,23 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  background: rgb(248, 248, 248);
+  min-height: 100vh;
+}
+
+.logo {
+  margin: auto;
+  margin-top: 80px;
+  margin-bottom: 20px;
+  width: 406px
+}
+
+.form {
+  margin: 0 auto;
+  width: 406px;
+  height: 320px;
+  padding: 36px;
+  box-shadow: 0 0 10px rgba(14, 6, 6, 0.1);
+  border-radius: 25px;
+  background: #fff;
+}
